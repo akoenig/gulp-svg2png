@@ -18,8 +18,6 @@ var gulp    = require('gulp'),
     jasmine = require('gulp-jasmine'),
     paths   = {};
 
-var svg2png = require('./');
-
 paths.sources = ['./*.js', './specs/**/.js'];
 paths.specs    = ['./specs/*.spec.js'];
 
@@ -32,12 +30,6 @@ gulp.task('lint', function () {
 gulp.task('test', function () {
     gulp.src(paths.specs)
         .pipe(jasmine());
-});
-
-gulp.task('svg2png', function () {
-    gulp.src('./specs/assets/**/*.svg')
-        .pipe(svg2png())
-        .pipe(gulp.dest('./build'));
 });
 
 gulp.task('default', ['lint', 'test']);
