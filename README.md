@@ -1,4 +1,4 @@
-# gulp-svg2png
+# gulp-svg2png [![Build Status](https://travis-ci.org/akoenig/gulp-svg2png.png?branch=master)](https://travis-ci.org/akoenig/gulp-svg2png)
 
 > A gulp plugin for converting SVGs to PNGs.
 
