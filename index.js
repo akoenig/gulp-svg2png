@@ -24,26 +24,68 @@ var path        = require('path'),
 module.exports = function () {
 
     /**
-     * DOCME
+     * Renames the SVG file to a PNG file (extension)
      *
-     * @return {[type]} [description]
+     * @param {string} filename The file name of the SVG
+     *
+     * @return {string} The file name with the PNG file extension.
      *
      */
     function rename (filename) {
         return filename.replace(path.extname(filename), '.png');
     }
 
+    /**
+     * Just a global error function.
+     *
+     * @param  {string} message The error message
+     *
+     */
     function error (message) {
         throw new gutil.PluginError(PLUGIN_NAME, message);
     }
 
     /**
-     * DOCME
+     * Checks if the given file is a SVG.
      *
-     * @param  {[type]}   file [description]
-     * @param  {Function} cb   [description]
+     * @param  {buffer} svg The SVG file object.
      *
-     * @return {[type]}        [description]
+     * @return {Boolean}     [description]
+     *
+     */
+    function isSVG (data) {
+        var i = 0,
+            len = data.length,
+            snippet;
+
+        data = data.toString('hex');
+
+        for (i; i < len; i = i + 1) {
+            snippet = data.slice(i, i + 2).toString('hex');
+
+            if ('73' === snippet) {
+                i = i + 2;
+                snippet = data.slice(i, i + 2).toString('hex');
+
+                if ('76' === snippet) {
+                    i = i + 2;
+                    snippet = data.slice(i, i + 2).toString('hex');
+
+                    if ('67' === snippet) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Converts the source SVG file to a PNG.
+     *
+     * @param  {gutil.File} source The source SVG
+     * @param  {function} cb
      *
      */
     function convert (source, cb) {
@@ -64,6 +106,7 @@ module.exports = function () {
                 contents: data
             });
 
+            // Cleanup - Deletes the temp file.
             fs.unlink(temp, done);
         }
 
@@ -75,6 +118,11 @@ module.exports = function () {
             fs.readFile(temp, buffered);
         }
 
+        if (!isSVG(source.contents)) {
+            return error('Source is not a SVG file.');
+        }
+
+        // Writes the file to the temp directory.
         svg2png(source.path, temp, converted);
     }
 
