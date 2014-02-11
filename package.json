@@ -1,0 +1,33 @@
+{
+  "name": "gulp-svg2png",
+  "version": "0.1.0",
+  "description": "A gulp plugin for converting SVGs to PNGs.",
+  "author": {
+    "name": "André König",
+    "email": "andre.koenig@posteo.de"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:akoenig/gulp-svg2png.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "svg",
+    "png",
+    "converter",
+    "svg2png"
+  ],
+  "bugs": {
+    "url": "https://github.com/akoenig/gulp-svg2png/issues"
+  },
+  "homepage": "https://github.com/akoenig/gulp-svg2png",
+  "devDependencies": {
+    "gulp-jasmine": "~0.1.3",
+    "gulp-jshint": "~1.4.0"
+  }
+}
