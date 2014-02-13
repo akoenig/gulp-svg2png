@@ -21,7 +21,15 @@ var path        = require('path'),
     svg2png     = require('svg2png'),
     PLUGIN_NAME = 'gulp-svg2png';
 
-module.exports = function () {
+/**
+ * gulp-svg2png plugin
+ *
+ * @param  {number} scale (optional) The scaling factor.
+ *
+ */
+module.exports = function (scale) {
+
+    scale = scale || 1.0;
 
     /**
      * Renames the SVG file to a PNG file (extension)
@@ -123,7 +131,7 @@ module.exports = function () {
         }
 
         // Writes the file to the temp directory.
-        svg2png(source.path, temp, converted);
+        svg2png(source.path, temp, scale, converted);
     }
 
     return map(convert);
