@@ -23,7 +23,19 @@ gulp.task('svg2png', function () {
 });
 ```
 
+## Arguments
+
+### svg2png([scaling])
+
+`scaling`
+
+The scaling factor (optional; default=1.0)
+
 ## Changelog
+
+### Version 0.2.0 (20140213)
+
+- [Feature] Implemented option for passing the scaling factor.
 
 ### Version 0.1.1 (20140212)
 
