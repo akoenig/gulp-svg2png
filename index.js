@@ -97,7 +97,7 @@ module.exports = function (scale) {
      *
      */
     function convert (source, cb) {
-        var temp = path.join(os.tmpdir(), rename(path.basename(source.path))),
+        var temp = path.join(os.tmpdir(), Math.round(Math.random()*1000).toString() + Date.now() + '-' + rename(path.basename(source.path))),
             png;
 
         function done (err) {

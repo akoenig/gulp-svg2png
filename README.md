@@ -33,6 +33,10 @@ The scaling factor (optional; default=1.0)
 
 ## Changelog
 
+### Version 0.2.1 (20140218)
+
+- [Bugfix] See [#3](https://github.com/akoenig/gulp-svg2png/issues/3) for further information.
+
 ### Version 0.2.0 (20140213)
 
 - [Feature] Implemented option for passing the scaling factor.
