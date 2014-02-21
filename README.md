@@ -33,6 +33,10 @@ The scaling factor (optional; default=1.0)
 
 ## Changelog
 
+### Version 0.2.2 (20140221)
+
+- Added more files to .npmignore.
+
 ### Version 0.2.1 (20140218)
 
 - [Bugfix] See [#3](https://github.com/akoenig/gulp-svg2png/issues/3) for further information.
