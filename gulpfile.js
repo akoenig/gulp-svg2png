@@ -18,8 +18,8 @@ var gulp    = require('gulp'),
     jasmine = require('gulp-jasmine'),
     paths   = {};
 
-paths.sources = ['./*.js', './specs/**/.js'];
-paths.specs    = ['./specs/*.spec.js'];
+paths.sources = ['./*.js', './specs/**/*.js'];
+paths.specs   = ['./specs/*.spec.js'];
 
 gulp.task('lint', function () {
     gulp.src(paths.sources)
