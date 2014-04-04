@@ -25,7 +25,7 @@ describe('The "gulp-svg2png" plugin', function () {
             image    = helper.createTestFile();
 
         stream.on('data', function (png) {
-            expect(png.path).toBe('twitter.png');
+            expect(png.path).toBe('./specs/assets/twitter.png');
             expect(helper.isPNG(png.contents)).toBe(true);
 
             done();

@@ -33,6 +33,11 @@ The scaling factor (optional; default=1.0)
 
 ## Changelog
 
+### Version 0.2.3 (20140404)
+
+- Retain folder hierarchy.
+- Implemented UUID for temp file naming.
+
 ### Version 0.2.2 (20140221)
 
 - Added more files to .npmignore.

@@ -54,11 +54,26 @@ module.exports = function (scale) {
     }
 
     /**
+     * UUID generator
+     *
+     * @return {string} The generated UUID.
+     *
+     */
+    function uuid () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (chr) {
+            var rand = Math.random() * 16|0;
+            var value = chr == 'x' ? rand : (rand&0x3|0x8);
+
+            return value.toString(16);
+        });
+    }
+
+    /**
      * Checks if the given file is a SVG.
      *
      * @param  {buffer} svg The SVG file object.
      *
-     * @return {Boolean}     [description]
+     * @return {Boolean}
      *
      */
     function isSVG (data) {
@@ -97,7 +112,7 @@ module.exports = function (scale) {
      *
      */
     function convert (source, cb) {
-        var temp = path.join(os.tmpdir(), Math.round(Math.random()*1000).toString() + Date.now() + '-' + rename(path.basename(source.path))),
+        var temp = path.join(os.tmpdir(), uuid() + '-' + rename(path.basename(source.path))),
             png;
 
         function done (err) {
@@ -110,11 +125,12 @@ module.exports = function (scale) {
 
         function buffered (err, data) {
             png = new gutil.File({
-                path: rename(path.basename(source.path)),
+                base: source.base,
+                path: rename(source.path),
                 contents: data
             });
 
-            // Cleanup - Deletes the temp file.
+            // Cleanup - Delete the temp file.
             fs.unlink(temp, done);
         }
 
