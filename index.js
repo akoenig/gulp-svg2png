@@ -24,10 +24,16 @@ var path        = require('path'),
 /**
  * gulp-svg2png plugin
  *
- * @param  {number} scale (optional) The scaling factor.
+ * @param {number} scale (optional) The scaling factor.
+ * @param {boolean} verbose (optional) Should the progress be logged?
  *
  */
-module.exports = function (scale) {
+module.exports = function (scale, verbose) {
+
+    if ('boolean' === typeof scale) {
+        verbose = scale;
+        scale = undefined;
+    }
 
     scale = scale || 1.0;
 
@@ -46,11 +52,24 @@ module.exports = function (scale) {
     /**
      * Just a global error function.
      *
-     * @param  {string} message The error message
+     * @param {string} message The error message
      *
      */
     function error (message) {
         throw new gutil.PluginError(PLUGIN_NAME, message);
+    }
+
+    /**
+     * Wrapper around gutil logger.
+     * Logs if logging is enabled.
+     *
+     * @param {string} message The log message
+     *
+     */
+    function log (message) {
+        if (verbose) {
+            gutil.log(message);
+        }
     }
 
     /**
@@ -119,6 +138,8 @@ module.exports = function (scale) {
             if (err) {
                 return error(err);
             }
+
+            log('Converted file: ' + png.path);
 
             cb(null, png);
         }

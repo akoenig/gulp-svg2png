@@ -25,11 +25,15 @@ gulp.task('svg2png', function () {
 
 ## Arguments
 
-### svg2png([scaling])
+### svg2png([scaling, verbose])
 
 `scaling`
 
 The scaling factor (optional; default=1.0)
+
+`verbose`
+
+Logs progress information (optional; default=false)
 
 ## Changelog
 
