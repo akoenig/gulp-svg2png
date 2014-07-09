@@ -1,4 +1,4 @@
-# UNRELEASED
+# 0.2.4 (2014-07-09)
 
   * Updated dependencies.
 
