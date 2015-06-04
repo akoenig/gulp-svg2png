@@ -1,7 +1,7 @@
 /*
  * gulp-svg2png
  *
- * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * Copyright(c) 2014-2015 André König <andre.koenig@posteo.de>
  * MIT Licensed
  *
  */
@@ -13,13 +13,13 @@
 
 'use strict';
 
-var path        = require('path'),
-    os          = require('os'),
-    fs          = require('fs'),
-    map         = require('map-stream'),
-    gutil       = require('gulp-util'),
-    svg2png     = require('svg2png'),
-    PLUGIN_NAME = 'gulp-svg2png';
+var path = require('path');
+var os = require('os');
+var fs = require('fs');
+var map = require('map-stream');
+var gutil = require('gulp-util');
+var svg2png = require('svg2png');
+var PLUGIN_NAME = 'gulp-svg2png';
 
 /**
  * gulp-svg2png plugin
