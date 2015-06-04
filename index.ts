@@ -18,10 +18,12 @@ import path = require('path');
 import os = require('os');
 import fs = require('fs');
 
+import svg2png = require('svg2png');
+import gutil = require('gulp-util');
+
 var map = require('map-stream');
-var gutil = require('gulp-util');
-var svg2png = require('svg2png');
-var PLUGIN_NAME = 'gulp-svg2png';
+
+const PLUGIN_NAME = 'gulp-svg2png';
 
 /**
  * gulp-svg2png plugin

@@ -7,6 +7,21 @@
   "installed": {
     "node/node.d.ts": {
       "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
+    },
+    "svg2png/svg2png.d.ts": {
+      "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
+    },
+    "gulp-util/gulp-util.d.ts": {
+      "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
+    },
+    "vinyl/vinyl.d.ts": {
+      "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
+    },
+    "chalk/chalk.d.ts": {
+      "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
+    },
+    "through2/through2.d.ts": {
+      "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
     }
   }
 }
