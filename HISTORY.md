@@ -1,3 +1,7 @@
+# UNRELEASED
+
+  * Switch to TypeScript
+
 # 0.3.0 (2014-07-09)
 
   * Option for displaying treatment logs ([#5](https://github.com/akoenig/gulp-svg2png/issues/5))

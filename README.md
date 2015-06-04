@@ -35,10 +35,18 @@ The scaling factor (optional; default=1.0)
 
 Logs progress information (optional; default=false)
 
+## Development
+
+### TypeScript build
+
+```sh
+npm run build
+```
+
 ## Changelog
 
 See [HISTORY.md](https://github.com/akoenig/gulp-svg2png/blob/master/HISTORY.md)
 
 ## Author
 
-Copyright 2014, [André König](http://iam.andrekoenig.info) (andre.koenig@posteo.de)
+Copyright 2014-2015, [André König](http://iam.andrekoenig.info) (andre.koenig@posteo.de)
