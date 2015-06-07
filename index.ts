@@ -1,4 +1,5 @@
 ///<reference path='./typings/tsd'/>
+
 /*
  * gulp-svg2png
  *
@@ -21,40 +22,15 @@ import fs = require('fs');
 import svg2png = require('svg2png');
 import gutil = require('gulp-util');
 
+import {SVG, UUID} from './lib/index';
+
 var map = require('map-stream');
 
-const PLUGIN_NAME = 'gulp-svg2png';
+const PLUGIN_NAME = require('./package.json');
 
-/**
- * gulp-svg2png plugin
- *
- * @param {number} scale (optional) The scaling factor.
- * @param {boolean} verbose (optional) Should the progress be logged?
- *
- */
-export = (scale: number = 1.0, verbose: boolean = true) => {
+class Command {
 
-    /**
-     * Renames the SVG file to a PNG file (extension)
-     *
-     * @param {string} filename The file name of the SVG
-     *
-     * @return {string} The file name with the PNG file extension.
-     *
-     */
-    function rename (filename: string) {
-        return filename.replace(path.extname(filename), '.png');
-    }
-
-    /**
-     * Just a global error function.
-     *
-     * @param {string} message The error message
-     *
-     */
-    function error (message: string) {
-        throw new gutil.PluginError(PLUGIN_NAME, message);
-    }
+    constructor(private scale: number = 1.0, private verbose: boolean = true) { }
 
     /**
      * Wrapper around gutil logger.
@@ -63,110 +39,78 @@ export = (scale: number = 1.0, verbose: boolean = true) => {
      * @param {string} message The log message
      *
      */
-    function log (message: string) {
-        if (verbose) {
-            gutil.log(message);
-        }
+    private log(message: string) {
+       if (this.verbose) {
+           gutil.log(message);
+       }
     }
 
     /**
-     * UUID generator
+     * Just a global error function.
      *
-     * @return {string} The generated UUID.
+     * @param {string} message The error message
      *
      */
-    function uuid () {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (chr) {
-            var rand = Math.random() * 16|0;
-            var value = chr == 'x' ? rand : (rand&0x3|0x8);
-
-            return value.toString(16);
-        });
+    private error(message: string) {
+        throw new gutil.PluginError(PLUGIN_NAME, message);
     }
-
+    
     /**
-     * Checks if the given file is a SVG.
+     * Renames the SVG file to a PNG file (extension)
      *
-     * @param  {buffer} svg The SVG file object.
+     * @param {string} filename The file name of the SVG
      *
-     * @return {Boolean}
+     * @return {string} The file name with the PNG file extension.
      *
      */
-    function isSVG (data: any): boolean {
-        var i = 0;
-        var len = data.length;
-        var snippet: string;
-
-        data = data.toString('hex');
-
-        for (i; i < len; i = i + 1) {
-            snippet = data.slice(i, (i + 2)).toString('hex');
-
-            if ('73' === snippet) {
-                i = i + 2;
-                snippet = data.slice(i, (i + 2)).toString('hex');
-
-                if ('76' === snippet) {
-                    i = i + 2;
-                    snippet = data.slice(i, (i + 2)).toString('hex');
-
-                    if ('67' === snippet) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
+    private rename(filename: string) {
+         return filename.replace(path.extname(filename), '.png');
     }
-
-    /**
-     * Converts the source SVG file to a PNG.
-     *
-     * @param  {gutil.File} source The source SVG
-     * @param  {function} cb
-     *
-     */
-    function convert (source: any, cb: Function) {
-        var temp = path.join(os.tmpdir(), uuid() + '-' + rename(path.basename(source.path)));
+    
+    execute(source: any, cb: Function) {
+        var temp = path.join(os.tmpdir(), UUID.generate() + '-' + this.rename(path.basename(source.path)));
         var png: any;
 
-        function done (err: Error) {
+        var  done = (err: Error) => {
             if (err) {
-                return error(err.toString());
+                return this.error(err.toString());
             }
 
-            log('Converted file: ' + png.path);
+            this.log('Converted file: ' + png.path);
 
             cb(null, png);
         }
 
-        function buffered (err: Error, data: Buffer) {
+        var buffered = (err: Error, data: Buffer) => {
             png = new gutil.File({
                 base: source.base,
-                path: rename(source.path),
+                path: this.rename(source.path),
                 contents: data
             });
 
-            // Cleanup - Delete the temp file.
+          // Cleanup - Delete the temp file.
             fs.unlink(temp, done);
         }
 
-        function converted (err: Error) {
+        var converted = (err : Error) => {
             if (err) {
-                return error('Error while converting image.' + err);
+                return this.error('Error while converting image.' + err);
             }
 
             fs.readFile(temp, buffered);
         }
 
-        if (!isSVG(source.contents)) {
-            return error('Source is not a SVG file.');
+        if (!SVG.is(source.contents)) {
+            return this.error('Source is not a SVG file.');
         }
 
         // Writes the file to the temp directory.
-        svg2png(source.path, temp, scale, converted);
+        svg2png(source.path, temp, this.scale, converted);
     }
+}
 
-    return map(convert);
+export = (scale: number = 1.0, verbose: boolean = true) => {
+    var cmd = new Command(scale, verbose);
+    
+    return map(cmd.execute.bind(cmd));
 };

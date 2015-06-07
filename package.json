@@ -8,7 +8,9 @@
   "scripts": {
     "tsd": "tsd reinstall -so",
     "compile": "tsc",
-    "build": "npm i && npm run tsd && npm run compile"
+    "build": "npm i && npm run tsd && npm run compile",
+    "mocha": "mocha ./specs/*.spec.js",
+    "test": "npm run build && npm run mocha"
   },
   "repository": {
     "type": "git",
@@ -31,8 +33,10 @@
     "svg2png": "^1.1.1"
   },
   "devDependencies": {
+    "chai": "^3.0.0",
     "imagesize": "^1.0.0",
-    "typescript": "^1.5.0-beta",
-    "tsd": "^0.6.0-beta.5"
+    "mocha": "^2.2.5",
+    "tsd": "^0.6.0-beta.5",
+    "typescript": "^1.5.0-beta"
   }
 }

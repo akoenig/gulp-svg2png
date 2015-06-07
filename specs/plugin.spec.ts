@@ -1,7 +1,9 @@
+///<reference path='../typings/tsd'/>
+
 /*
  * gulp-svg2png
  *
- * Copyright(c) 2014 André König <andre.koenig@posteo.de>
+ * Copyright(c) 2014-2015 André König <andre.koenig@posteo.de>
  * MIT Licensed
  *
  */
@@ -13,20 +15,21 @@
 
 'use strict';
 
-var fs      = require('fs'),
-    svg2png = require('../'),
-    helper  = require('./helper');
+import fs = require('fs');
+import Helper from './helper';
 
-describe('The "gulp-svg2png" plugin', function () {
+var expect  = require('chai').expect;
+var svg2png = require('../');
 
-    it('should convert a SVG to a PNG', function (done) {
-        var filename = 'twitter.svg',
-            stream   = svg2png(),
-            image    = helper.createTestFile();
+describe('The "gulp-svg2png" plugin', () => {
+    it('should convert a SVG to a PNG', (done) => {
+        var filename = 'twitter.svg';
+        var stream = svg2png();
+        var image = Helper.createTestFile();
 
-        stream.on('data', function (png) {
-            expect(png.path).toBe('./specs/assets/twitter.png');
-            expect(helper.isPNG(png.contents)).toBe(true);
+        stream.on('data', (png: any) => {
+            expect(png.path).to.equal('./specs/assets/twitter.png');
+            expect(Helper.isPNG(png.contents)).to.equal(true);
 
             done();
         });
@@ -36,14 +39,14 @@ describe('The "gulp-svg2png" plugin', function () {
     });
 
     it('should convert a SVG to a PNG by a defined scaling factor', function (done) {
-        var factor = 1.1,
-            filename = 'twitter.svg',
-            stream   = svg2png(factor),
-            image    = helper.createTestFile();
+        var factor = 1.1;
+        var filename = 'twitter.svg';
+        var stream = svg2png(factor);
+        var image = Helper.createTestFile();
 
-        stream.on('data', function (png) {
-            helper.hasDimensions(png.contents, 191, 190, function (err, has) {
-                expect(has).toBe(true);
+        stream.on('data', (png: any) => {
+            Helper.hasDimensions(png.contents, 191, 190, function (err: Error, has: boolean) {
+                expect(has).to.equal(true);
 
                 done();
             });

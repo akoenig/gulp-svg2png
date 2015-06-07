@@ -4,6 +4,8 @@
         "noImplicitAny": true
     },
 	"files": [
-		"index.ts"
+		"index.ts",
+		"specs/helper.ts",
+		"specs/plugin.spec.ts"
 	]	
 }

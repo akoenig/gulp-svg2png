@@ -22,6 +22,9 @@
     },
     "through2/through2.d.ts": {
       "commit": "931c4c9e0e38ac022f33d496892424772a5c9d25"
+    },
+    "mocha/mocha.d.ts": {
+      "commit": "03f721a76b4c1622c4203a9c6fbee77bce243945"
     }
   }
 }
