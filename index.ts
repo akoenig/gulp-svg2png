@@ -116,7 +116,7 @@ export = (scale: number = 1.0, verbose: boolean = true, concurrency: number = nu
   if (concurrency) {
     return map_limit(cmd.execute.bind(cmd), concurrency);
   } else {
-    return map(cmd.execute.bind(cmd), concurrency);
+    return map(cmd.execute.bind(cmd));
   }
 
 };
