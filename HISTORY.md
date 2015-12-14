@@ -1,5 +1,7 @@
-# UNRELEASED
+# true (2015-12-14)
 
+  * [Feature] Added in a flag to limit parallel tasks [@nihaopaul](https://github.com/nihaopaul)
+  * [Bugfix] Max user processes [@nihaopaul](https://github.com/nihaopaul)
   * Switch to TypeScript
 
 # 0.3.0 (2014-07-09)
