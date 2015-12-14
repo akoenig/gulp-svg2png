@@ -37,7 +37,7 @@
     "chai": "^3.0.0",
     "imagesize": "^1.0.0",
     "mocha": "^2.2.5",
-    "tsd": "^0.6.0-beta.5",
-    "typescript": "^1.5.0-beta"
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.3"
   }
 }
