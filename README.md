@@ -25,7 +25,7 @@ gulp.task('svg2png', function () {
 
 ## Arguments
 
-### svg2png([scaling, verbose])
+### svg2png([scaling, verbose, concurrency])
 
 `scaling`
 
@@ -33,7 +33,11 @@ The scaling factor (optional; default=1.0)
 
 `verbose`
 
-Logs progress information (optional; default=false)
+Logs progress information (optional; default=true)
+
+`concurrency`
+
+Limit the amount of concurrent tasks processed at one time. (optional; default=null)
 
 ## Development
 
