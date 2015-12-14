@@ -1,4 +1,4 @@
-# true (2015-12-14)
+# 1.0.0 (2015-12-14)
 
   * [Feature] Added in a flag to limit parallel tasks [@nihaopaul](https://github.com/nihaopaul)
   * [Bugfix] Max user processes [@nihaopaul](https://github.com/nihaopaul)
