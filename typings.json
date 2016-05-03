@@ -1,0 +1,13 @@
+{
+  "name": "gulp-svg2png",
+  "version": false,
+  "ambientDependencies": {
+    "node": "github:furny/DefinitelyTyped/node/node.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
+    "svg2png": "github:furny/DefinitelyTyped/svg2png/svg2png.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
+    "gulp-util": "github:furny/DefinitelyTyped/gulp-util/gulp-util.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
+    "vinyl": "github:furny/DefinitelyTyped/vinyl/vinyl.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
+    "chalk": "github:furny/DefinitelyTyped/chalk/chalk.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
+    "through2": "github:furny/DefinitelyTyped/through2/through2.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
+    "mocha": "github:furny/DefinitelyTyped/mocha/mocha.d.ts#03f721a76b4c1622c4203a9c6fbee77bce243945"
+  }
+}
