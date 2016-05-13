@@ -27,7 +27,7 @@ import {SVG, UUID} from './lib/index';
 var map_limit = require('map-stream-limit');
 var map = require('map-stream');
 
-const PLUGIN_NAME = require('./package.json');
+const PLUGIN_NAME = require('./package.json').name;
 
 class Command {
 
