@@ -22,30 +22,33 @@ var expect  = require('chai').expect;
 var svg2png = require('../');
 
 describe('The "gulp-svg2png" plugin', () => {
-    it('should convert a SVG to a PNG', (done) => {
-        var filename = 'twitter.svg';
-        var stream = svg2png();
-        var image = Helper.createTestFile();
+    it('should convert a SVG to a PNG', done => {
+        const filename = 'twitter.svg';
+        const stream = svg2png();
+        const image = Helper.createTestFile();
 
-        stream.on('data', (png: any) => {
-            expect(png.path).to.equal('./specs/assets/twitter.png');
-            expect(Helper.isPNG(png.contents)).to.equal(true);
+	stream.on('data', (png: any) => {
+        expect(png.path).to.equal('./specs/assets/twitter.png');
+        expect(Helper.isPNG(png.contents)).to.equal(true);
 
-            done();
-        });
+        done();
+    });
+
+	stream.on('error', (err: Error) =>
+		console.error(err)
+	);
 
         stream.write(image);
         stream.end();
     });
 
     it('should convert a SVG to a PNG by a defined scaling factor', function (done) {
-        var factor = 1.1;
-        var filename = 'twitter.svg';
-        var stream = svg2png(factor);
-        var image = Helper.createTestFile();
+        const filename = 'twitter.svg';
+        const stream = svg2png({width: 200, height: 300});
+        const image = Helper.createTestFile();
 
         stream.on('data', (png: any) => {
-            Helper.hasDimensions(png.contents, 191, 190, function (err: Error, has: boolean) {
+            Helper.hasDimensions(png.contents, 300, 200, function (err: Error, has: boolean) {
                 expect(has).to.equal(true);
 
                 done();

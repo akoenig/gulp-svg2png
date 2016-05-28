@@ -14,9 +14,7 @@
 'use strict';
 
 import SVG from './SVG';
-import UUID from './UUID';
 
 export {
-	SVG,
-	UUID
+	SVG
 };

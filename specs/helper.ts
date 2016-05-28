@@ -33,9 +33,9 @@ export default class Helper {
      *
      */
     static isPNG(buffer: Buffer): boolean {
-        var mnumber = '89504E470D0A1A0A'; // magic number of a PNG
+        const mnumber = '89504E470D0A1A0A'; // magic number of a PNG
 
-        var contents = buffer.toString('hex').toUpperCase();
+        const contents = buffer.toString('hex').toUpperCase();
 
         return (contents.substring(0, mnumber.length) === mnumber);
     }
@@ -51,7 +51,7 @@ export default class Helper {
      *
      */
     static hasDimensions(image: string, height: number, width: number, callback: Function) {
-        var temp = path.join(os.tmpdir(), 'test.png');
+        const temp = path.join(os.tmpdir(), 'test.png');
 
         fs.writeFileSync(temp, image);
 

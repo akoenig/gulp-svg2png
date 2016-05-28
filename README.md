@@ -25,11 +25,11 @@ gulp.task('svg2png', function () {
 
 ## Arguments
 
-### svg2png([scaling, verbose, concurrency])
+### svg2png([options, verbose, concurrency])
 
-`scaling`
+`options`
 
-The scaling factor (optional; default=1.0)
+The resizing options which will be passed directly to [svg2png](https://github.com/domenic/svg2png#exact-resizing-behavior).
 
 `verbose`
 

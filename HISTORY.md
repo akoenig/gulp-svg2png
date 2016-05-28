@@ -1,3 +1,7 @@
+# 2.0.0 (2016-05-28)
+
+  * [Feature] Update to svg2png v3.0.0 (this introduces a slightly different API regarding the resizing options)
+
 # 1.0.0 (2015-12-14)
 
   * [Feature] Added in a flag to limit parallel tasks [@nihaopaul](https://github.com/nihaopaul)

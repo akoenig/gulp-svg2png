@@ -3,7 +3,6 @@
   "version": false,
   "ambientDependencies": {
     "node": "github:furny/DefinitelyTyped/node/node.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
-    "svg2png": "github:furny/DefinitelyTyped/svg2png/svg2png.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
     "gulp-util": "github:furny/DefinitelyTyped/gulp-util/gulp-util.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
     "vinyl": "github:furny/DefinitelyTyped/vinyl/vinyl.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
     "chalk": "github:furny/DefinitelyTyped/chalk/chalk.d.ts#931c4c9e0e38ac022f33d496892424772a5c9d25",
