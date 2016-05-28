@@ -1,4 +1,4 @@
-///<reference path='../typings/tsd'/>
+///<reference path='../typings/main.d.ts'/>
 
 /*
  * gulp-svg2png

@@ -1,4 +1,4 @@
-///<reference path='../typings/tsd'/>
+///<reference path='../typings/main.d.ts'/>
 
 /*
  * gulp-svg2png
@@ -23,7 +23,7 @@ import gutil = require('gulp-util');
 var imagesize = require('imagesize');
 
 export default class Helper {
-    
+
     /**
      * Checks if a given buffer is valid data from a PNG.
      *
@@ -39,7 +39,7 @@ export default class Helper {
 
         return (contents.substring(0, mnumber.length) === mnumber);
     }
-    
+
     /**
      * Checks if the dimensions of an image matches
      * given dimensions.
@@ -65,7 +65,7 @@ export default class Helper {
             return callback(null, (result.width === width && result.height === height));
         });
     }
-    
+
     /**
      * Creates a vinyl file descriptor for testing.
      *
