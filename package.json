@@ -1,6 +1,6 @@
 {
   "name": "gulp-svg2png",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A gulp plugin for converting SVGs to PNGs.",
   "author": "André König <andre.koenig@posteo.de>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "gulp-util": "^3.0.7",
     "map-stream": "0.0.6",
     "map-stream-limit": "^1.1.0",
-    "svg2png": "^3.0.0"
+    "svg2png": "^1.1.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
