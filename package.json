@@ -12,6 +12,11 @@
     "mocha": "mocha ./specs/*.spec.js",
     "test": "npm run build && npm run mocha"
   },
+  {
+    "engines": {
+	  "node": "^4.4.5"
+	}
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:akoenig/gulp-svg2png.git"
