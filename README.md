@@ -53,4 +53,4 @@ See [HISTORY.md](https://github.com/akoenig/gulp-svg2png/blob/master/HISTORY.md)
 
 ## Author
 
-Copyright 2014-2015, [André König](http://iam.andrekoenig.info) (andre.koenig@posteo.de)
+Copyright 2014-2016, [André König](http://andrekoenig.info) (andre.koenig@posteo.de)
