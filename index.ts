@@ -19,7 +19,6 @@ import path = require('path');
 
 import gutil = require('gulp-util');
 
-const pn = require('pn/fs');
 const map_limit = require('map-stream-limit');
 const map = require('map-stream');
 const svg2png = require('svg2png');
@@ -67,15 +66,14 @@ class Command {
 	}
 
 	execute(source: any, cb: Function) {
+		if (!source.isBuffer()) {
+			return this.error('Streams are not supported by the underlying svg2png library.');
+		}
 		if (!SVG.is(source.contents)) {
 			return this.error('Source is not a SVG file.');
 		}
 
-		pn
-			.readFile(source.path)
-			.then((buffer: Buffer) =>
-				svg2png(buffer, this.options)
-			)
+		svg2png(source.contents, this.options)
 			.then((contents: Buffer) =>
 				cb(null, new gutil.File({
 					base: source.base,
@@ -98,4 +96,3 @@ export = (options: Object = {}, verbose: boolean = true, concurrency: number = n
 		return map(cmd.execute.bind(cmd));
 	}
 };
-
