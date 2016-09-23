@@ -1,6 +1,6 @@
 {
   "name": "gulp-svg2png",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A gulp plugin for converting SVGs to PNGs.",
   "author": "André König <andre.koenig@posteo.de>",
   "license": "MIT",
