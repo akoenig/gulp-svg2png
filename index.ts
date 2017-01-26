@@ -67,20 +67,19 @@ class Command {
 		if (!source.isBuffer()) {
 			return this.error('Streams are not supported by the underlying svg2png library.');
 		}
-		if (!SVG.is(source)) {
+
+		if (!SVG.is(source.contents)) {
 			return this.error('Source is not a SVG file.');
 		}
 
 		svg2png(source, this.options)
 			.then((contents: Buffer) => {
-				console.log('DONE');
-			})
-			// 	// cb(null, new gutil.File({
-			// 	// 	base: source.base,
-			// 	// 	path: this.rename(source.path),
-			// 	// 	contents
-			// 	// }))
-			// )
+				cb(null, new gutil.File({
+					base: source.base,
+					path: this.rename(source.path),
+					contents
+				}))
+			)
 			.catch((err: Error) =>
 				cb(this.error(`Error while converting the image: ${err.message}`))
 			);
