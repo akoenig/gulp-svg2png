@@ -79,7 +79,7 @@ class Command {
 					path: this.rename(source.path),
 					contents
 				}))
-			)
+			})
 			.catch((err: Error) =>
 				cb(this.error(`Error while converting the image: ${err.message}`))
 			);
