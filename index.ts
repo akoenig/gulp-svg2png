@@ -1,5 +1,3 @@
-///<reference path='./typings/main.d.ts'/>
-
 /*
  * gulp-svg2png
  *
@@ -23,7 +21,7 @@ const map_limit = require('map-stream-limit');
 const map = require('map-stream');
 const svg2png = require('svg2png');
 
-import {SVG} from './lib/index';
+import { SVG } from './lib/index';
 
 const PLUGIN_NAME = require('./package.json').name;
 
@@ -69,18 +67,20 @@ class Command {
 		if (!source.isBuffer()) {
 			return this.error('Streams are not supported by the underlying svg2png library.');
 		}
-		if (!SVG.is(source.contents)) {
+		if (!SVG.is(source)) {
 			return this.error('Source is not a SVG file.');
 		}
 
-		svg2png(source.contents, this.options)
-			.then((contents: Buffer) =>
-				cb(null, new gutil.File({
-					base: source.base,
-					path: this.rename(source.path),
-					contents
-				}))
-			)
+		svg2png(source, this.options)
+			.then((contents: Buffer) => {
+				console.log('DONE');
+			})
+			// 	// cb(null, new gutil.File({
+			// 	// 	base: source.base,
+			// 	// 	path: this.rename(source.path),
+			// 	// 	contents
+			// 	// }))
+			// )
 			.catch((err: Error) =>
 				cb(this.error(`Error while converting the image: ${err.message}`))
 			);

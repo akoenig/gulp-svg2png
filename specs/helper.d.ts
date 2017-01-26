@@ -1,5 +1,4 @@
-/// <reference path="../typings/main.d.ts" />
-import gutil = require('gulp-util');
+/// <reference types="node" />
 export default class Helper {
     /**
      * Checks if a given buffer is valid data from a PNG.
@@ -27,5 +26,5 @@ export default class Helper {
      * @return {object}
      *
      */
-    static createTestFile(): gutil.File;
+    static createTestFile(): any;
 }

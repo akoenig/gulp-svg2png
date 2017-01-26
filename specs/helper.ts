@@ -1,5 +1,3 @@
-///<reference path='../typings/main.d.ts'/>
-
 /*
  * gulp-svg2png
  *
@@ -32,13 +30,13 @@ export default class Helper {
      * @return {boolean}
      *
      */
-    static isPNG(buffer: Buffer): boolean {
-        const mnumber = '89504E470D0A1A0A'; // magic number of a PNG
+	static isPNG(buffer: Buffer): boolean {
+		const mnumber = '89504E470D0A1A0A'; // magic number of a PNG
 
-        const contents = buffer.toString('hex').toUpperCase();
+		const contents = buffer.toString('hex').toUpperCase();
 
-        return (contents.substring(0, mnumber.length) === mnumber);
-    }
+		return (contents.substring(0, mnumber.length) === mnumber);
+	}
 
     /**
      * Checks if the dimensions of an image matches
@@ -50,21 +48,21 @@ export default class Helper {
      * @param  {function} callback
      *
      */
-    static hasDimensions(image: string, height: number, width: number, callback: Function) {
-        const temp = path.join(os.tmpdir(), 'test.png');
+	static hasDimensions(image: string, height: number, width: number, callback: Function) {
+		const temp = path.join(os.tmpdir(), 'test.png');
 
-        fs.writeFileSync(temp, image);
+		fs.writeFileSync(temp, image);
 
-        imagesize(fs.createReadStream(temp), (err: Error, result: {width: number, height: number}) => {
-            if (err) {
-                return callback(err);
-            }
+		imagesize(fs.createReadStream(temp), (err: Error, result: { width: number, height: number }) => {
+			if (err) {
+				return callback(err);
+			}
 
-            fs.unlinkSync(temp);
+			fs.unlinkSync(temp);
 
-            return callback(null, (result.width === width && result.height === height));
-        });
-    }
+			return callback(null, (result.width === width && result.height === height));
+		});
+	}
 
     /**
      * Creates a vinyl file descriptor for testing.
@@ -72,12 +70,12 @@ export default class Helper {
      * @return {object}
      *
      */
-    static createTestFile() {
-        return new gutil.File({
-            cwd:  './specs/assets/',
-            base: './specs/assets/',
-            path: './specs/assets/twitter.svg',
-            contents: fs.readFileSync('./specs/assets/twitter.svg')
-        });
-    };
+	static createTestFile(): any {
+		return new gutil.File({
+			cwd: './specs/assets/',
+			base: './specs/assets/',
+			path: './specs/assets/twitter.svg',
+			contents: fs.readFileSync('./specs/assets/twitter.svg')
+		});
+	};
 }

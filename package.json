@@ -6,9 +6,9 @@
 	"license": "MIT",
 	"main": "index.js",
 	"scripts": {
-		"typings": "typings install -SA",
+		"dev": "tsc --watch",
 		"compile": "tsc",
-		"build": "npm i && npm run typings && npm run compile",
+		"build": "npm i && npm run compile",
 		"mocha": "mocha ./specs/*.spec.js",
 		"test": "npm run build && npm run mocha"
 	},
@@ -37,10 +37,16 @@
 		"svg2png": "^3.0.0"
 	},
 	"devDependencies": {
+		"@types/chai": "^3.4.34",
+		"@types/chalk": "^0.4.31",
+		"@types/gulp-util": "^3.0.30",
+		"@types/mocha": "^2.2.38",
+		"@types/node": "^7.0.4",
+		"@types/through2": "^2.0.32",
+		"@types/vinyl": "^2.0.0",
 		"chai": "^3.0.0",
 		"imagesize": "^1.0.0",
 		"mocha": "^2.2.5",
-		"typings": "^0.8.1",
-		"typescript": "^1.7.3"
+		"typescript": "^2.1.5"
 	}
 }
