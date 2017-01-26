@@ -1,7 +1,7 @@
 /*
  * gulp-svg2png
  *
- * Copyright(c) 2014-2015 André König <andre.koenig@posteo.de>
+ * Copyright(c) 2014 - present / André König <andre.koenig@posteo.de>
  * MIT Licensed
  *
  */
