@@ -48,7 +48,7 @@ class Command {
 	*
 	*/
 	private error(message: string) {
-		throw new gutil.PluginError(PLUGIN_NAME, message);
+		return new gutil.PluginError(PLUGIN_NAME, message);
 	}
 
 	/**
