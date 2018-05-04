@@ -1,7 +1,10 @@
-# gulp-svg2png [![Build Status](https://travis-ci.org/akoenig/gulp-svg2png.png?branch=master)](https://travis-ci.org/akoenig/gulp-svg2png)
+# gulp-svg2png ![Build Status](https://travis-ci.org/ryanwholey/gulp-svg2png.svg?branch=master)](https://travis-ci.org/ryanwholey/gulp-svg2png)
 
 > A gulp plugin for converting SVGs to PNGs.
 
+## About
+
+The original project [akoenig/gulp-svg2png](https://github.com/akoenig/gulp-svg2png) is a fantastic piece of work. It seems to have fallen off of active development, specifically leaving the package blocked at node 6. Improvements to this fork include node 8 support as well as a bump to svg2png to its most recent version of ^4.0.0. Please feel free to ping me if you'd like to see some updates here! Thanks!
 
 ## Usage
 
