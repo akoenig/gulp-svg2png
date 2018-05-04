@@ -72,7 +72,9 @@ class Command {
 			return this.error('Source is not a SVG file.');
 		}
 
-		svg2png(source, this.options)
+		const buffer = source._contents ? source._contents : source;
+
+		svg2png(buffer, this.options)
 			.then((contents: Buffer) => {
 				cb(null, new gutil.File({
 					base: source.base,
