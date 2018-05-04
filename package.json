@@ -1,23 +1,24 @@
 {
-	"name": "gulp-svg2png",
-	"version": "2.0.2",
+	"name": "gulp-svg2png-update",
+	"version": "2.1.1",
 	"description": "A gulp plugin for converting SVGs to PNGs.",
 	"author": "André König <andre.koenig@posteo.de>",
 	"license": "MIT",
 	"main": "index.js",
 	"scripts": {
 		"dev": "tsc --watch",
+		"demo": "gulp demo",
 		"compile": "tsc",
 		"build": "npm i && npm run compile",
 		"mocha": "mocha ./specs/*.spec.js",
 		"test": "npm run build && npm run mocha"
 	},
 	"engines": {
-		"node": "^6.0.0 || ^7.0.0"
+		"node": ">=6.0.0"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:akoenig/gulp-svg2png.git"
+		"url": "git@github.com:ryanwholey/gulp-svg2png.git"
 	},
 	"keywords": [
 		"gulpplugin",
@@ -27,14 +28,14 @@
 		"svg2png"
 	],
 	"bugs": {
-		"url": "https://github.com/akoenig/gulp-svg2png/issues"
+		"url": "https://github.com/ryanwholey/gulp-svg2png/issues"
 	},
-	"homepage": "https://github.com/akoenig/gulp-svg2png",
+	"homepage": "https://github.com/ryanwholey/gulp-svg2png",
 	"dependencies": {
 		"gulp-util": "^3.0.7",
 		"map-stream": "0.0.6",
 		"map-stream-limit": "^1.1.0",
-		"svg2png": "^3.0.0"
+		"svg2png": "^4.1.1"
 	},
 	"devDependencies": {
 		"@types/chai": "^3.4.34",
@@ -45,6 +46,7 @@
 		"@types/through2": "^2.0.32",
 		"@types/vinyl": "^2.0.0",
 		"chai": "^3.0.0",
+		"gulp": "^3.9.1",
 		"imagesize": "^1.0.0",
 		"mocha": "^2.2.5",
 		"typescript": "^2.1.5"
